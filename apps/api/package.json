@@ -8,7 +8,8 @@
     "start": "node dist/index.js",
     "build": "tsc",
     "typecheck": "tsc --noEmit",
-    "vercel:bundle": "esbuild src/vercel-entry.js --bundle --platform=node --format=cjs --target=node20 --outfile=../../api/_app.cjs --external:@prisma/client --external:@prisma/adapter-libsql --external:@libsql/*"
+    "vercel:bundle": "esbuild src/vercel-entry.js --bundle --platform=node --format=cjs --target=node20 --outfile=../../api/_app.cjs --external:@prisma/client --external:@prisma/adapter-libsql --external:@libsql/*",
+    "netlify:bundle": "esbuild src/netlify-entry.js --bundle --platform=node --format=cjs --target=node20 --outfile=../../netlify/functions/api-bundle.cjs --external:@prisma/client --external:@prisma/adapter-libsql --external:@libsql/*"
   },
   "dependencies": {
     "@decksmith/shared": "workspace:*",
@@ -16,7 +17,8 @@
     "@decksmith/database": "workspace:*",
     "express": "^4.21.0",
     "cors": "^2.8.5",
-    "dotenv": "^16.0.0"
+    "dotenv": "^16.0.0",
+    "serverless-http": "^3.2.0"
   },
   "devDependencies": {
     "@types/express": "^5.0.0",

@@ -42,3 +42,6 @@ Thumbs.db
 
 # Vercel serverless bundle (generated at build time)
 api/_app.cjs
+
+# Netlify function bundle (generated at build time)
+netlify/functions/api-bundle.cjs

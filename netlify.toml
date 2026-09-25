@@ -1,0 +1,27 @@
+# Netlify deployment (free tier): API as a serverless function, web as static.
+[build]
+  command = "pnpm --filter @decksmith/database db:generate && pnpm --filter @decksmith/api netlify:bundle && pnpm --filter @decksmith/web build"
+  publish = "apps/web/dist"
+  functions = "netlify/functions"
+
+[functions]
+  node_bundler = "esbuild"
+  # Native modules esbuild cannot bundle; Netlify includes them from node_modules.
+  external_node_modules = ["@prisma/client", "@prisma/adapter-libsql", "@libsql/client"]
+
+# API routes -> serverless function (preserve the /api prefix for Express).
+[[redirects]]
+  from = "/health"
+  to = "/.netlify/functions/api/health"
+  status = 200
+
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/api/api/:splat"
+  status = 200
+
+# SPA fallback for BrowserRouter.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
