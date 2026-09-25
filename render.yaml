@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: decksmith-api
+    runtime: node
+    plan: free
+    buildCommand: "npm install -g pnpm@10 && pnpm install --frozen-lockfile && pnpm --filter @decksmith/database db:generate && pnpm --filter @decksmith/web build"
+    startCommand: "pnpm --filter @decksmith/api exec tsx src/index.ts"
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: TURSO_DATABASE_URL
+        sync: false
+      - key: TURSO_AUTH_TOKEN
+        sync: false
