@@ -39,3 +39,6 @@ Thumbs.db
 *.swp
 *.swo
 
+
+# Vercel serverless bundle (generated at build time)
+api/_app.cjs

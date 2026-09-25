@@ -11,6 +11,12 @@ importers:
 
   .:
     devDependencies:
+      '@libsql/client':
+        specifier: ^0.18.0
+        version: 0.18.0
+      '@prisma/adapter-libsql':
+        specifier: 6.19.3
+        version: 6.19.3
       '@prisma/client':
         specifier: 6.19.3
         version: 6.19.3(prisma@6.19.3(typescript@5.9.3))(typescript@5.9.3)
@@ -26,9 +32,6 @@ importers:
       '@decksmith/database':
         specifier: workspace:*
         version: link:../../packages/database
-      '@decksmith/scraper':
-        specifier: workspace:*
-        version: link:../../packages/scraper
       '@decksmith/shared':
         specifier: workspace:*
         version: link:../../packages/shared
@@ -48,6 +51,9 @@ importers:
       '@types/express':
         specifier: ^5.0.0
         version: 5.0.6
+      esbuild:
+        specifier: ^0.25.0
+        version: 0.25.12
       tsx:
         specifier: ^4.0.0
         version: 4.23.12

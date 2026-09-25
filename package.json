@@ -20,7 +20,9 @@
   },
   "devDependencies": {
     "@prisma/client": "6.19.3",
-    "prisma": "^6.0.0"
+    "prisma": "^6.0.0",
+    "@prisma/adapter-libsql": "6.19.3",
+    "@libsql/client": "^0.18.0"
   },
   "engines": {
     "node": ">=18",
@@ -30,5 +32,6 @@
     "overrides": {
       "typescript": "5.9.3"
     }
-  }
+  },
+  "packageManager": "pnpm@10.34.5"
 }

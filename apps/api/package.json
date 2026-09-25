@@ -7,13 +7,13 @@
     "dev": "tsx watch src/index.ts",
     "start": "node dist/index.js",
     "build": "tsc",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "vercel:bundle": "esbuild src/vercel-entry.js --bundle --platform=node --format=cjs --target=node20 --outfile=../../api/_app.cjs --external:@prisma/client --external:@prisma/adapter-libsql --external:@libsql/*"
   },
   "dependencies": {
     "@decksmith/shared": "workspace:*",
     "@decksmith/ai": "workspace:*",
     "@decksmith/database": "workspace:*",
-    "@decksmith/scraper": "workspace:*",
     "express": "^4.21.0",
     "cors": "^2.8.5",
     "dotenv": "^16.0.0"
@@ -22,6 +22,7 @@
     "@types/express": "^5.0.0",
     "@types/cors": "^2.8.0",
     "tsx": "^4.0.0",
-    "typescript": "^5.0.0"
+    "typescript": "^5.0.0",
+    "esbuild": "^0.25.0"
   }
 }
